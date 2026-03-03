@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LA ROUPAS — Moda Feminina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#inicio" class="navbar__logo">LA <span>ROUPAS</span></a>
+      <nav class="navbar__menu" id="navMenu">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#colecao">Coleção</a></li>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="navbar__actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Abrir carrinho">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CARRINHO SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Carrinho de compras">
+    <div class="cart-sidebar__header">
+      <h3><i class="fa-solid fa-bag-shopping"></i> Meu Carrinho</h3>
+      <button class="cart-sidebar__close" id="cartClose" aria-label="Fechar carrinho">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="cart-sidebar__body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <p>Seu carrinho está vazio.</p>
+        <a href="#colecao" class="btn btn--primary" id="cartGoShop">Ver Coleção</a>
+      </div>
+      <ul class="cart-items" id="cartItems"></ul>
+    </div>
+    <div class="cart-sidebar__footer" id="cartFooter">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <strong id="cartSubtotal">R$ 0,00</strong>
+      </div>
+      <div class="cart-frete" id="cartFreteMsg"></div>
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <button class="btn btn--primary cart-finalizar" id="cartFinalizar">
+        <i class="fa-solid fa-lock"></i> Finalizar Compra
+      </button>
+      <button class="btn btn--outline cart-limpar" id="cartLimpar">
+        Limpar Carrinho
+      </button>
+    </div>
+  </aside>
+
+  <!-- BARRA DE URGÊNCIA -->
+  <div class="urgencia-bar">
+    <div class="urgencia-bar__track">
+      <span><i class="fa-solid fa-fire"></i> ATENÇÃO: Peças por tempo <strong>ILIMITADO</strong> — mas os estoques estão <strong>acabando!</strong> Garanta a sua agora!</span>
+      <span><i class="fa-solid fa-fire"></i> ATENÇÃO: Peças por tempo <strong>ILIMITADO</strong> — mas os estoques estão <strong>acabando!</strong> Garanta a sua agora!</span>
+      <span><i class="fa-solid fa-fire"></i> ATENÇÃO: Peças por tempo <strong>ILIMITADO</strong> — mas os estoques estão <strong>acabando!</strong> Garanta a sua agora!</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__content reveal">
+      <p class="hero__tag">Nova Coleção 2026</p>
+      <h1 class="hero__title">Elegância<br /><em>que te define</em></h1>
+      <p class="hero__sub">Peças exclusivas pensadas para a mulher moderna, sofisticada e cheia de personalidade.</p>
+      <a href="#colecao" class="btn btn--primary">Ver Coleção</a>
+    </div>
+    <div class="hero__badge reveal"><span>♡</span></div>
+  </section>
+
+  <!-- CATEGORIAS -->
+  <section class="categorias section" id="categorias">
+    <div class="container">
+      <h2 class="section__title reveal">Explore as Categorias</h2>
+      <div class="categorias__grid">
+
+        <div class="categoria-card reveal" data-tab="vestidos">
+          <div class="categoria-card__icon"><i class="fa-solid fa-vest"></i></div>
+          <h3>Vestidos</h3>
+          <p>Do casual ao sofisticado, para cada ocasião especial.</p>
+          <a href="#colecao" class="link-arrow">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="categoria-card reveal" data-tab="saias">
+          <div class="categoria-card__icon"><i class="fa-solid fa-person-dress"></i></div>
+          <h3>Saias</h3>
+          <p>Plissadas, jeans ou florais — tem para todo gosto.</p>
+          <a href="#colecao" class="link-arrow">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="categoria-card reveal" data-tab="bermudas">
+          <div class="categoria-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2,3 H22 V6 H22 L22,20 H14 L12,13 L10,20 H2 L2,6 H2 Z"/>
+              <rect x="2" y="3" width="20" height="3.5" rx="1" fill="currentColor" opacity="0.55"/>
+            </svg>
+          </div>
+          <h3>Bermudas</h3>
+          <p>Conforto e estilo para o seu dia a dia com muito charme.</p>
+          <a href="#colecao" class="link-arrow">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="categoria-card reveal" data-tab="blusas">
+          <div class="categoria-card__icon"><i class="fa-solid fa-shirt"></i></div>
+          <h3>Blusas</h3>
+          <p>Modelos leves e estilosos para compor looks incríveis.</p>
+          <a href="#colecao" class="link-arrow">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="categoria-card reveal" data-tab="calcas">
+          <div class="categoria-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2,3 H22 L22,21 H14 L12,12 L10,21 H2 Z"/>
+              <rect x="2" y="3" width="20" height="3" rx="1" fill="currentColor" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3>Calças</h3>
+          <p>Do jeans ao social, para arrasar em qualquer look.</p>
+          <a href="#colecao" class="link-arrow">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="categoria-card reveal" data-tab="conjuntos">
+          <div class="categoria-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8,2 L4,5 L2,5 L2,11 L6,11 L6,9 H18 L18,11 L22,11 L22,5 L20,5 L16,2 Z"/>
+              <path d="M6,10 H18 L19,22 H14 L12,15 L10,22 H5 Z"/>
+            </svg>
+          </div>
+          <h3>Conjuntos</h3>
+          <p>Coordenados prontos para um look completo e chique.</p>
+          <a href="#colecao" class="link-arrow">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="categoria-card reveal" data-tab="macacoes">
+          <div class="categoria-card__icon">
+            <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9,2 L8,5 H4 L2,8 L2,13 L5,13 L5,11 H8 L8,14 L7,22 H11 L12,16 L13,22 H17 L16,14 L16,11 H19 L19,13 L22,13 L22,8 L20,5 H16 L15,2 Z"/>
+              <rect x="9" y="2" width="6" height="2" rx="1" fill="currentColor" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3>Macacões</h3>
+          <p>Elegância de uma peça só para qualquer ocasião.</p>
+          <a href="#colecao" class="link-arrow">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COLEÇÃO COM ABAS -->
+  <section class="colecao section" id="colecao">
+    <div class="container">
+      <h2 class="section__title reveal">Nossa Coleção</h2>
+      <p class="section__sub reveal">Escolha a categoria e encontre a peça perfeita para você</p>
+
+      <!-- ABAS -->
+      <div class="tabs reveal">
+        <button class="tab-btn active" data-tab="vestidos">
+          <i class="fa-solid fa-vest"></i> Vestidos
+        </button>
+        <button class="tab-btn" data-tab="saias">
+          <i class="fa-solid fa-person-dress"></i> Saias
+        </button>
+        <button class="tab-btn" data-tab="bermudas">
+          <svg class="icon-svg icon-svg--tab" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2,3 H22 V6 H22 L22,20 H14 L12,13 L10,20 H2 L2,6 H2 Z"/>
+            <rect x="2" y="3" width="20" height="3.5" rx="1" fill="currentColor" opacity="0.55"/>
+          </svg> Bermudas
+        </button>
+        <button class="tab-btn" data-tab="blusas">
+          <i class="fa-solid fa-shirt"></i> Blusas
+        </button>
+        <button class="tab-btn" data-tab="calcas">
+          <svg class="icon-svg icon-svg--tab" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2,3 H22 L22,21 H14 L12,12 L10,21 H2 Z"/>
+            <rect x="2" y="3" width="20" height="3" rx="1" fill="currentColor" opacity="0.5"/>
+          </svg> Calças
+        </button>
+        <button class="tab-btn" data-tab="conjuntos">
+          <svg class="icon-svg icon-svg--tab" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8,2 L4,5 L2,5 L2,11 L6,11 L6,9 H18 L18,11 L22,11 L22,5 L20,5 L16,2 Z"/>
+            <path d="M6,10 H18 L19,22 H14 L12,15 L10,22 H5 Z"/>
+          </svg> Conjuntos
+        </button>
+        <button class="tab-btn" data-tab="macacoes">
+          <svg class="icon-svg icon-svg--tab" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9,2 L8,5 H4 L2,8 L2,13 L5,13 L5,11 H8 L8,14 L7,22 H11 L12,16 L13,22 H17 L16,14 L16,11 H19 L19,13 L22,13 L22,8 L20,5 H16 L15,2 Z"/>
+            <rect x="9" y="2" width="6" height="2" rx="1" fill="currentColor" opacity="0.5"/>
+          </svg> Macacões
+        </button>
+      </div>
+
+      <!-- PAINEL: VESTIDOS -->
+      <div class="tab-panel active" data-panel="vestidos">
+        <div class="produtos__grid">
+
+          <div class="produto-card"
+               data-id="v1" data-nome="Vestido Floral" data-preco="115.00" data-img="vestidos/vestido1.jpg">
+            <div class="produto-card__img">
+              <img src="images/vestidos/vestido1.jpg" alt="Vestido Floral" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Vestido Floral</h4>
+              <p class="produto-card__preco">R$ 115,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="Único">Único</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="v2" data-nome="Vestido Floral2" data-preco="80.00" data-img="vestidos/vestido2.jpg">
+            <div class="produto-card__img">
+              <img src="images/vestidos/vestido2.jpg" alt="Vestido Floral2" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Vestido Floral</h4>
+              <p class="produto-card__preco">R$ 80,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="Único">Único</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="v3" data-nome="Vestido Longo Elegante" data-preco="110.00" data-img="vestidos/vestido3.jpg">
+            <div class="produto-card__img">
+              <img src="images/vestidos/vestido3.jpg" alt="Vestido Longo Elegante" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Vestido Longo Elegante</h4>
+              <p class="produto-card__preco">R$ 110,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="Único">Único</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="v4" data-nome="Vestido Floral3" data-preco="125.00" data-img="vestidos/vestido4.jpg">
+            <div class="produto-card__img">
+              <img src="images/vestidos/vestido4.jpg" alt="Vestido Floral3" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Vestido Floral</h4>
+              <p class="produto-card__preco">R$ 125,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="M">M</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="v5" data-nome="Vestido Festa" data-preco="110.00" data-img="vestidos/vestido5.jpg">
+            <div class="produto-card__img">
+              <img src="images/vestidos/vestido5.jpg" alt="Vestido Festa" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Vestido Festa</h4>
+              <p class="produto-card__preco">R$ 110,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="Único">Único</button> 
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="v6" data-nome="Vestido Jeans" data-preco="179.90" data-img="vestidos/vestido6.jpg">
+            <div class="produto-card__img">
+              <img src="images/vestidos/vestido6.jpg" alt="Vestido Jeans" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Vestido Jeans</h4>
+              <p class="produto-card__preco">R$ 179,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                  <button class="size-btn" data-size="P">P</button>
+                  <button class="size-btn" data-size="M">M</button>
+                  <button class="size-btn" data-size="G">G</button>
+                  <button class="size-btn" data-size="GG">GG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PAINEL: SAIAS -->
+      <div class="tab-panel" data-panel="saias">
+        <div class="produtos__grid">
+
+          <div class="produto-card"
+               data-id="s1" data-nome="Saia Jeans" data-preco="40.00" data-img="saias/saia1.jpg">
+            <div class="produto-card__img">
+              <img src="images/saias/saia1.jpg" alt="Saia Jeans" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Saia Jeans</h4>
+              <p class="produto-card__preco">R$ 40,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="44">44</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="s2" data-nome="Saia Jeans Preta" data-preco="40.00" data-img="saias/saia2.jpg">
+            <div class="produto-card__img">
+              <img src="images/saias/saia2.jpg" alt="Saia Jeans Preta" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Saia Jeans Preta</h4>
+              <p class="produto-card__preco">R$ 40,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="42">42</button>
+                  <button class="size-btn" data-size="44">44</button>
+                  <button class="size-btn" data-size="46">46</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="s3" data-nome="Saia Jeans2" data-preco="40.00" data-img="saias/saia3.jpg">
+            <div class="produto-card__img">
+              <img src="images/saias/saia3.jpg" alt="Saia Jeans2" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Saia Jeans</h4>
+              <p class="produto-card__preco">R$ 40,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                  <button class="size-btn" data-size="46">46</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="s4" data-nome="Saia Lapis" data-preco="139.90" data-img="saias/saia4.jpg">
+            <div class="produto-card__img">
+              <img src="images/saias/saia4.jpg" alt="Saia Lapis" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Saia Lápis</h4>
+              <p class="produto-card__preco">R$ 139,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                  <button class="size-btn" data-size="P">P</button>
+                  <button class="size-btn" data-size="M">M</button>
+                  <button class="size-btn" data-size="G">G</button>
+                  <button class="size-btn" data-size="GG">GG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="s5" data-nome="Saia Assimétrica" data-preco="169.90" data-img="saias/saia5.jpg">
+            <div class="produto-card__img">
+              <img src="images/saias/saia5.jpg" alt="Saia Assimétrica" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Saia Assimétrica</h4>
+              <p class="produto-card__preco">R$ 169,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                  <button class="size-btn" data-size="P">P</button>
+                  <button class="size-btn" data-size="M">M</button>
+                  <button class="size-btn" data-size="G">G</button>
+                  <button class="size-btn" data-size="GG">GG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="s6" data-nome="Saia Godê" data-preco="154.90" data-img="saias/saia6.jpg">
+            <div class="produto-card__img">
+              <img src="images/saias/saia6.jpg" alt="Saia Godê" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Saia Godê</h4>
+              <p class="produto-card__preco">R$ 154,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                  <button class="size-btn" data-size="P">P</button>
+                  <button class="size-btn" data-size="M">M</button>
+                  <button class="size-btn" data-size="G">G</button>
+                  <button class="size-btn" data-size="GG">GG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PAINEL: BERMUDAS -->
+      <div class="tab-panel" data-panel="bermudas">
+        <div class="produtos__grid">
+
+          <div class="produto-card"
+               data-id="b1" data-nome="Bermuda Jeans1" data-preco="60.00" data-img="bermudas/bermuda1.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda1.jpg" alt="Bermuda Jeans1" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 60,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="44">44</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b2" data-nome="Bermuda Jeans2" data-preco="50.00" data-img="bermudas/bermuda2.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda2.jpg" alt="Bermuda Jeans2" onerror="this.parentElement.classList.add('no-img')" />
+               <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 50,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="38">38</button>
+                  <button class="size-btn" data-size="40">40</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans3" data-preco="50.00" data-img="bermudas/bermuda3.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda3.jpg" alt="Bermuda Jeans3" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 50,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="38">38</button>
+                  <button class="size-btn" data-size="40">40</button>
+                  <button class="size-btn" data-size="42">42</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b4" data-nome="Bermuda Social" data-preco="65.00" data-img="bermudas/bermuda4.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda4.jpg" alt="Bermuda Social" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Social</h4>
+              <p class="produto-card__preco">R$ 65,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="GG">GG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b5" data-nome="Bermuda Jeans4" data-preco="80.00" data-img="bermudas/bermuda5.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda5.jpg" alt="Bermuda Jeans4" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 80,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="46">46</button>
+                  <button class="size-btn" data-size="48">48</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+           <div class="produto-card"
+               data-id="b5" data-nome="Bermuda Jeans5" data-preco="65.00" data-img="bermudas/bermuda6.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda6.jpg" alt="Bermuda Jeans5" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 65,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="34">34</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+
+          <div class="produto-card"
+               data-id="b6" data-nome="Bermuda Jeans6" data-preco="70.00" data-img="bermudas/bermuda7.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda7.jpg" alt="Bermuda Jeans6" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 70,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans7" data-preco="45.00" data-img="bermudas/bermuda8.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda8.jpg" alt="Bermuda Jeans7" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 45,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                  <button class="size-btn" data-size="38">38</button>
+                  <button class="size-btn" data-size="42">42</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans8" data-preco="60.00" data-img="bermudas/bermuda9.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda9.jpg" alt="Bermuda Jeans8" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 60,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="34">34</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans9" data-preco="50.00" data-img="bermudas/bermuda10.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda10.jpg" alt="Bermuda Jeans9" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 50,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                  <button class="size-btn" data-size="40">40</button>
+                  <button class="size-btn" data-size="42">42</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+           <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans10" data-preco="50.00" data-img="bermudas/bermuda11.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda11.jpg" alt="Bermuda Jeans10" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 50,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="38">38</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+           <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans11" data-preco="40.00" data-img="bermudas/bermuda12.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda12.jpg" alt="Bermuda Jeans11" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 40,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans12" data-preco="65.00" data-img="bermudas/bermuda13.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda13.jpg" alt="Bermuda Jeans12" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 65,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                  <button class="size-btn" data-size="38">38</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans13" data-preco="35.00" data-img="bermudas/bermuda14.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda14.jpg" alt="Bermuda Jeans13" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 35,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="40">40</button>
+                  <button class="size-btn" data-size="44">44</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans14" data-preco="80.00" data-img="bermudas/bermuda15.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda15.jpg" alt="Bermuda Jeans14" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 80,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="48">48</button>
+                  <button class="size-btn" data-size="50">50</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans15" data-preco="65.00" data-img="bermudas/bermuda16.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda16.jpg" alt="Bermuda Jeans15" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 65,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="34">34</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+           <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans16" data-preco="65.00" data-img="bermudas/bermuda17.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda17.jpg" alt="Bermuda Jeans16" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 65,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans17" data-preco="50.00" data-img="bermudas/bermuda18.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda18.jpg" alt="Bermuda Jeans17" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 50,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="42">42</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans18" data-preco="45.00" data-img="bermudas/bermuda19.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda19.jpg" alt="Bermuda Jeans18" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 45,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans19" data-preco="35.00" data-img="bermudas/bermuda20.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda20.jpg" alt="Bermuda Jeans19" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 35,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans20" data-preco="35.00" data-img="bermudas/bermuda21.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda21.jpg" alt="Bermuda Jeans20" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 35,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="40">40</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans21" data-preco="55.00" data-img="bermudas/bermuda22.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda22.jpg" alt="Bermuda Jeans21" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 55,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="40">40</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans22" data-preco="35.00" data-img="bermudas/bermuda23.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda23.jpg" alt="Bermuda Jeans22" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 35,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans23" data-preco="50.00" data-img="bermudas/bermuda24.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda24.jpg" alt="Bermuda Jeans23" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 50,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans24" data-preco="50.00" data-img="bermudas/bermuda25.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda25.jpg" alt="Bermuda Jeans24" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 50,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="42">42</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="b3" data-nome="Bermuda Jeans25" data-preco="35.00" data-img="bermudas/bermuda26.jpg">
+            <div class="produto-card__img">
+              <img src="images/bermudas/bermuda26.jpg" alt="Bermuda Jeans25" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Bermuda Jeans</h4>
+              <p class="produto-card__preco">R$ 35,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PAINEL: BLUSAS -->
+      <div class="tab-panel" data-panel="blusas">
+        <div class="produtos__grid">
+
+          <div class="produto-card"
+               data-id="bl1" data-nome="Blusa Casual" data-preco="40.00" data-img="blusas/blusa1.jpg">
+            <div class="produto-card__img">
+              <img src="images/blusas/blusa1.jpg" alt="Blusa Casual" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Blusa Casual</h4>
+              <p class="produto-card__preco">R$ 40,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="G">G</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="bl2" data-nome="Blusa Jeans" data-preco="50.00" data-img="blusas/blusa2.jpg">
+            <div class="produto-card__img">
+              <img src="images/blusas/blusa2.jpg" alt="Blusa Jeans" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Blusa Jeans</h4>
+              <p class="produto-card__preco">R$ 50,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="M">M</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="bl3" data-nome="Blusa Manga Longa" data-preco="109.90" data-img="blusas/blusa3.jpg">
+            <div class="produto-card__img">
+              <img src="images/blusas/blusa3.jpg" alt="Blusa Manga Longa" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Blusa Manga Longa</h4>
+              <p class="produto-card__preco">R$ 109,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                  <button class="size-btn" data-size="P">P</button>
+                  <button class="size-btn" data-size="M">M</button>
+                  <button class="size-btn" data-size="G">G</button>
+                  <button class="size-btn" data-size="GG">GG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="bl4" data-nome="Blusa Estampada" data-preco="89.90" data-img="blusas/blusa4.jpg">
+            <div class="produto-card__img">
+              <img src="images/blusas/blusa4.jpg" alt="Blusa Estampada" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Blusa Estampada</h4>
+              <p class="produto-card__preco">R$ 89,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                  <button class="size-btn" data-size="P">P</button>
+                  <button class="size-btn" data-size="M">M</button>
+                  <button class="size-btn" data-size="G">G</button>
+                  <button class="size-btn" data-size="GG">GG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="bl5" data-nome="Blusa Social" data-preco="119.90" data-img="blusas/blusa5.jpg">
+            <div class="produto-card__img">
+              <img src="images/blusas/blusa5.jpg" alt="Blusa Social" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Blusa Social</h4>
+              <p class="produto-card__preco">R$ 119,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                  <button class="size-btn" data-size="P">P</button>
+                  <button class="size-btn" data-size="M">M</button>
+                  <button class="size-btn" data-size="G">G</button>
+                  <button class="size-btn" data-size="GG">GG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card"
+               data-id="bl6" data-nome="Blusa de Renda" data-preco="94.90" data-img="blusas/blusa6.jpg">
+            <div class="produto-card__img">
+              <img src="images/blusas/blusa6.jpg" alt="Blusa de Renda" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Blusa de Renda</h4>
+              <p class="produto-card__preco">R$ 94,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                  <button class="size-btn" data-size="P">P</button>
+                  <button class="size-btn" data-size="M">M</button>
+                  <button class="size-btn" data-size="G">G</button>
+                  <button class="size-btn" data-size="GG">GG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PAINEL: CALÇAS -->
+      <div class="tab-panel" data-panel="calcas">
+        <div class="produtos__grid">
+
+          <div class="produto-card" data-id="c1" data-nome="Calça Jeans" data-preco="90.00" data-img="calcas/calca1.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca1.jpg" alt="Calça Jeans" onerror="this.parentElement.classList.add('no-img')" />
+              <span class="badge-estoque"><i class="fa-solid fa-fire"></i> Últimas peças!</span>
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Jeans</h4>
+              <p class="produto-card__preco">R$ 90,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+              <div class="size-options">
+                  <button class="size-btn" data-size="36">36</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="c2" data-nome="Calça Jeans2" data-preco="100.00" data-img="calcas/calca2.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca2.jpg" alt="Calça Jeans2" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Jeans</h4>
+              <p class="produto-card__preco">R$ 100,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+              <div class="size-options">
+                <button class="size-btn" data-size="36">36</button>
+                <button class="size-btn" data-size="38">38</button>
+                <button class="size-btn" data-size="42">42</button>
+               </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="c3" data-nome="Calça Jeans Preta" data-preco="90.00" data-img="calcas/calca3.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca3.jpg" alt="Calça Jeans Preta" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Jeans Preta</h4>
+              <p class="produto-card__preco">R$ 90,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+              <div class="size-options">
+                <button class="size-btn" data-size="44">44</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="c4" data-nome="Calça Skinny" data-preco="110.00" data-img="calcas/calca4.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca4.jpg" alt="Calça Skinny" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Skinny</h4>
+              <p class="produto-card__preco">R$ 110,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="42">42</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="c5" data-nome="Calça social Preta" data-preco="110.00" data-img="calcas/calca5.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca5.jpg" alt="Calça Social Preta" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Social Preta</h4>
+              <p class="produto-card__preco">R$ 110,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="XGG">XGG</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="c6" data-nome="Calça Jogger Jeans" data-preco="70.00" data-img="calcas/calca6.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca6.jpg" alt="Calça Jogger Jeans" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Jogger Jeans</h4>
+              <p class="produto-card__preco">R$ 70,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="38">38</button>
+                  <button class="size-btn" data-size="44">44</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="c6" data-nome="Calça Social Bege" data-preco="120.00" data-img="calcas/calca7.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca7.jpg" alt="Calça Social Bege" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Social Bege</h4>
+              <p class="produto-card__preco">R$ 120,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="M">M</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="c6" data-nome="Calça Jeans3" data-preco="75.00" data-img="calcas/calca8.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca8.jpg" alt="Calça Jeans3" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Jeans</h4>
+              <p class="produto-card__preco">R$ 75,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="46">46</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="c5" data-nome="Calça social Preta1" data-preco="120.00" data-img="calcas/calca9.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca9.jpg" alt="Calça Social Preta1" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Social Preta</h4>
+              <p class="produto-card__preco">R$ 120,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="G">G</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="c5" data-nome="Calça Jeans4" data-preco="110.00" data-img="calcas/calca10.jpg">
+            <div class="produto-card__img">
+              <img src="images/calcas/calca10.jpg" alt="Calça Jeans4" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Calça Jeans</h4>
+              <p class="produto-card__preco">R$ 110,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="48">48</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- PAINEL: CONJUNTOS -->
+      <div class="tab-panel" data-panel="conjuntos">
+        <div class="produtos__grid">
+
+          <div class="produto-card" data-id="co1" data-nome="Conjunto Casual" data-preco="110.00" data-img="conjuntos/conjunto1.jpg">
+            <div class="produto-card__img">
+              <img src="images/conjuntos/conjunto1.jpg" alt="Conjunto Casual" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Conjunto Casual</h4>
+              <p class="produto-card__preco">R$ 110,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+              <div class="size-options">
+                  <button class="size-btn" data-size="G2">G2</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+          
+
+          <div class="produto-card" data-id="co2" data-nome="Conjunto Elegante" data-preco="110.00" data-img="conjuntos/conjunto2.jpg">
+            <div class="produto-card__img">
+              <img src="images/conjuntos/conjunto2.jpg" alt="Conjunto Elegante" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Conjunto Elegante</h4>
+              <p class="produto-card__preco">R$ 110,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="Único">Único</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="co3" data-nome="Conjunto Casual" data-preco="249.90" data-img="conjuntos/conjunto3.jpg">
+            <div class="produto-card__img">
+              <img src="images/conjuntos/conjunto3.jpg" alt="Conjunto Casual" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Conjunto Casual</h4>
+              <p class="produto-card__preco">R$ 249,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="co4" data-nome="Conjunto Elegante" data-preco="299.90" data-img="conjuntos/conjunto4.jpg">
+            <div class="produto-card__img">
+              <img src="images/conjuntos/conjunto4.jpg" alt="Conjunto Elegante" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Conjunto Elegante</h4>
+              <p class="produto-card__preco">R$ 299,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="co5" data-nome="Conjunto Floral" data-preco="259.90" data-img="conjuntos/conjunto5.jpg">
+            <div class="produto-card__img">
+              <img src="images/conjuntos/conjunto5.jpg" alt="Conjunto Floral" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Conjunto Floral</h4>
+              <p class="produto-card__preco">R$ 259,90</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="PP">PP</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="co6" data-nome="Conjunto Moletom" data-preco="229.90" data-img="conjuntos/conjunto6.jpg">
+            <div class="produto-card__img">
+              <img src="images/conjuntos/conjunto6.jpg" alt="Conjunto Moletom" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Conjunto Moletom</h4>
+              <p class="produto-card__preco">R$ 229,90</p>
+              <div class="size-selector"><p class="size-label">Tamanho:</p><div class="size-options"><button class="size-btn" data-size="PP">PP</button><button class="size-btn" data-size="P">P</button><button class="size-btn" data-size="M">M</button><button class="size-btn" data-size="G">G</button><button class="size-btn" data-size="GG">GG</button></div></div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PAINEL: MACACÕES -->
+      <div class="tab-panel" data-panel="macacoes">
+        <div class="produtos__grid">
+
+          <div class="produto-card" data-id="m1" data-nome="Macacão Jeans" data-preco="70.00" data-img="macacoes/macacao1.jpg">
+            <div class="produto-card__img">
+              <img src="images/macacoes/macacao1.jpg" alt="Macacão Jeans" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Macacão Jeans</h4>
+              <p class="produto-card__preco">R$ 70,00</p>
+              <div class="size-selector"><p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="38">38</button>
+                  <button class="size-btn" data-size="40">40</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="m2" data-nome="Macacão Floral" data-preco="120.00" data-img="macacoes/macacao2.jpg">
+            <div class="produto-card__img">
+              <img src="images/macacoes/macacao2.jpg" alt="Macacão Floral" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Macacão Floral</h4>
+              <p class="produto-card__preco">R$ 120,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="Único">Único</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="m3" data-nome="Macacão Elegante" data-preco="125.00" data-img="macacoes/macacao3.jpg">
+            <div class="produto-card__img">
+              <img src="images/macacoes/macacao3.jpg" alt="Macacão Elegante" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Macacão Elegante</h4>
+              <p class="produto-card__preco">R$ 125,00</p>
+              <div class="size-selector">
+                <p class="size-label">Tamanho:</p>
+                <div class="size-options">
+                  <button class="size-btn" data-size="Único">Único</button>
+                </div>
+              </div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="m4" data-nome="Macacão Curto" data-preco="219.90" data-img="macacoes/macacao4.jpg">
+            <div class="produto-card__img">
+              <img src="images/macacoes/macacao4.jpg" alt="Macacão Curto" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Macacão Curto</h4>
+              <p class="produto-card__preco">R$ 219,90</p>
+              <div class="size-selector"><p class="size-label">Tamanho:</p><div class="size-options"><button class="size-btn" data-size="PP">PP</button><button class="size-btn" data-size="P">P</button><button class="size-btn" data-size="M">M</button><button class="size-btn" data-size="G">G</button><button class="size-btn" data-size="GG">GG</button></div></div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="m5" data-nome="Macacão Social" data-preco="309.90" data-img="macacoes/macacao5.jpg">
+            <div class="produto-card__img">
+              <img src="images/macacoes/macacao5.jpg" alt="Macacão Social" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Macacão Social</h4>
+              <p class="produto-card__preco">R$ 309,90</p>
+              <div class="size-selector"><p class="size-label">Tamanho:</p><div class="size-options"><button class="size-btn" data-size="PP">PP</button><button class="size-btn" data-size="P">P</button><button class="size-btn" data-size="M">M</button><button class="size-btn" data-size="G">G</button><button class="size-btn" data-size="GG">GG</button></div></div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+          <div class="produto-card" data-id="m6" data-nome="Macacão Estampado" data-preco="249.90" data-img="macacoes/macacao6.jpg">
+            <div class="produto-card__img">
+              <img src="images/macacoes/macacao6.jpg" alt="Macacão Estampado" onerror="this.parentElement.classList.add('no-img')" />
+              <div class="produto-card__overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+            <div class="produto-card__info">
+              <h4>Macacão Estampado</h4>
+              <p class="produto-card__preco">R$ 249,90</p>
+              <div class="size-selector"><p class="size-label">Tamanho:</p><div class="size-options"><button class="size-btn" data-size="PP">PP</button><button class="size-btn" data-size="P">P</button><button class="size-btn" data-size="M">M</button><button class="size-btn" data-size="G">G</button><button class="size-btn" data-size="GG">GG</button></div></div>
+              <button class="btn btn--outline btn-add-cart"><i class="fa-solid fa-bag-shopping"></i> Adicionar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section class="banner-promo reveal">
+    <div class="container banner-promo__inner">
+      <i class="fa-solid fa-truck-fast"></i>
+      <p><strong>Frete grátis</strong> em compras acima de <strong>R$ 199</strong> — Aproveite!</p>
+      <i class="fa-solid fa-tag"></i>
+    </div>
+  </section>
+
+  <!-- SOBRE NÓS -->
+  <section class="sobre section" id="sobre">
+    <div class="container sobre__inner">
+      <div class="sobre__texto reveal">
+        <p class="sobre__tag">Nossa História</p>
+        <h2>Nascemos para vestir a mulher que você é</h2>
+        <p>A <strong>LA ROUPAS</strong> surgiu do desejo de oferecer moda feminina com qualidade, elegância e preços acessíveis. Cada peça é cuidadosamente escolhida para celebrar a beleza única de cada mulher.</p>
+        <p>Acreditamos que a roupa certa tem o poder de transformar o dia, elevar a autoestima e expressar quem você é sem dizer uma palavra.</p>
+        <a href="#contato" class="btn btn--primary">Fale Conosco</a>
+      </div>
+      <div class="sobre__imagem reveal">
+        <div class="sobre__img-placeholder">
+          <i class="fa-solid fa-scissors"></i>
+          <span>LA ROUPAS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos section" id="depoimentos">
+    <div class="container">
+      <h2 class="section__title reveal">O que nossas clientes dizem</h2>
+      <div class="depoimentos__grid">
+        <div class="depoimento-card reveal">
+          <div class="depoimento-card__foto">
+            <img src="images/cliente1.jpg" alt="Ana Clara" onerror="this.classList.add('no-img-avatar')" />
+          </div>
+          <div class="estrelas">★★★★★</div>
+          <p>"Os vestidos são lindos e a qualidade é incrível! Com certeza voltarei a comprar. Amei demais!"</p>
+          <strong>Ana Clara</strong>
+        </div>
+        <div class="depoimento-card reveal">
+          <div class="depoimento-card__foto">
+            <img src="images/cliente2.jpg" alt="Fernanda Lima" onerror="this.classList.add('no-img-avatar')" />
+          </div>
+          <div class="estrelas">★★★★★</div>
+          <p>"Atendimento maravilhoso e entrega super rápida. As peças são ainda mais bonitas pessoalmente!"</p>
+          <strong>Fernanda Lima</strong>
+        </div>
+        <div class="depoimento-card reveal">
+          <div class="depoimento-card__foto">
+            <img src="images/cliente3.jpg" alt="Juliana Souza" onerror="this.classList.add('no-img-avatar')" />
+          </div>
+          <div class="estrelas">★★★★★</div>
+          <p>"Comprei a bermuda jeans e recebi vários elogios! Melhor compra que fiz esse ano!"</p>
+          <strong>Juliana Souza</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER / CONTATO -->
+  <section class="contato section" id="contato">
+    <div class="container contato__inner reveal">
+      <i class="fa-solid fa-envelope-open-text contato__icon"></i>
+      <h2>Fique por dentro das novidades</h2>
+      <p>Cadastre seu e-mail e receba em primeira mão lançamentos, promoções exclusivas e dicas de moda.</p>
+      <form class="contato__form" id="newsletterForm">
+        <input type="email" placeholder="Seu melhor e-mail" required />
+        <button type="submit" class="btn btn--primary">Quero receber novidades</button>
+      </form>
+      <p class="contato__aviso" id="newsletterMsg"></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__col">
+        <a href="#inicio" class="navbar__logo">LA <span>ROUPAS</span></a>
+        <p>Moda feminina com elegância, qualidade e amor por cada detalhe.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#colecao">Coleção</a></li>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Atendimento</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i> (83) 98180-1744</li>
+          <li><i class="fa-brands fa-whatsapp"></i> WhatsApp</li>
+          <li><i class="fa-solid fa-clock"></i> Seg–Sex: 9h–18h</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Redes Sociais</h4>
+        <div class="footer__social">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 LA ROUPAS — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
