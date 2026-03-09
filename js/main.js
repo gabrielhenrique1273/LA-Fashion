@@ -1,5 +1,5 @@
 /* =============================================
-   LA ROUPAS — JavaScript
+   LA FASHION — JavaScript
    ============================================= */
 
 (() => {
@@ -59,7 +59,7 @@
       if (!email) return;
       msg.textContent = 'Cadastrando...';
       setTimeout(() => {
-        msg.textContent = `Obrigada! O e-mail ${email} foi cadastrado com sucesso. ♡`;
+        msg.textContent = `Obrigada! O e-mail ${email} foi cadastrado com sucesso. \u2665`;
         form.reset();
       }, 800);
     });
@@ -77,23 +77,17 @@
     bindCardEvents();
   }
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      activateTab(btn.dataset.tab);
-    });
-  });
+  tabBtns.forEach(btn => btn.addEventListener('click', () => activateTab(btn.dataset.tab)));
 
-  // Cards das categorias também ativam a aba correspondente
   document.querySelectorAll('.categoria-card[data-tab]').forEach(card => {
-    card.addEventListener('click', e => {
-      const tab = card.dataset.tab;
+    card.addEventListener('click', () => {
       document.getElementById('colecao').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => activateTab(tab), 400);
+      setTimeout(() => activateTab(card.dataset.tab), 400);
     });
   });
 
   // ============================================
-  //  SELETOR DE TAMANHO — delegado ao documento
+  //  SELETOR DE TAMANHO
   // ============================================
   document.addEventListener('click', e => {
     if (!e.target.classList.contains('size-btn')) return;
@@ -104,12 +98,50 @@
   });
 
   // ============================================
+  //  MODAL ZOOM NA FOTO
+  // ============================================
+  const zoomModal    = document.getElementById('zoomModal');
+  const zoomImg      = document.getElementById('zoomImg');
+  const zoomNome     = document.getElementById('zoomNome');
+  const zoomPreco    = document.getElementById('zoomPreco');
+  const zoomClose    = document.getElementById('zoomClose');
+  const zoomOverlay  = document.getElementById('zoomOverlay');
+
+  function openZoom(src, nome, preco) {
+    zoomImg.src     = src;
+    zoomNome.textContent  = nome;
+    zoomPreco.textContent = preco;
+    zoomModal.classList.add('open');
+    zoomOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeZoom() {
+    zoomModal.classList.remove('open');
+    zoomOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (zoomClose)   zoomClose.addEventListener('click', closeZoom);
+  if (zoomOverlay) zoomOverlay.addEventListener('click', closeZoom);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeZoom(); });
+
+  // ============================================
   //  CARRINHO
   // ============================================
-  let cart = [];
+  const STORAGE_KEY = 'lafashion_cart';
+
+  function saveCart() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+  }
+  function loadCart() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    catch { return []; }
+  }
+
+  let cart = loadCart();
 
   const cartSidebar   = document.getElementById('cartSidebar');
-  const cartOverlay   = document.getElementById('cartOverlay');
+  const cartOverlay2  = document.getElementById('cartOverlay');
   const cartBtn       = document.getElementById('cartBtn');
   const cartClose     = document.getElementById('cartClose');
   const cartBadge     = document.getElementById('cartBadge');
@@ -124,25 +156,25 @@
   const cartGoShop    = document.getElementById('cartGoShop');
   const toastEl       = document.getElementById('toast');
 
-  const FRETE_GRATIS = 199;
+  const FRETE_GRATIS   = 199;
+  const WHATSAPP_NUMBER = '5583981801744';
 
   function openCart()  {
     cartSidebar.classList.add('open');
-    cartOverlay.classList.add('open');
+    cartOverlay2.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
   function closeCart() {
     cartSidebar.classList.remove('open');
-    cartOverlay.classList.remove('open');
+    cartOverlay2.classList.remove('open');
     document.body.style.overflow = '';
   }
 
   cartBtn.addEventListener('click', openCart);
   cartClose.addEventListener('click', closeCart);
-  cartOverlay.addEventListener('click', closeCart);
+  cartOverlay2.addEventListener('click', e => { if (!cartSidebar.contains(e.target)) closeCart(); });
   if (cartGoShop) cartGoShop.addEventListener('click', closeCart);
 
-  // Toast
   let toastTimer;
   function showToast(msg, type = '') {
     clearTimeout(toastTimer);
@@ -151,7 +183,6 @@
     toastTimer = setTimeout(() => { toastEl.className = 'toast'; }, 2800);
   }
 
-  // Badge pop
   function animateBadge() {
     cartBadge.classList.remove('pop');
     void cartBadge.offsetWidth;
@@ -166,8 +197,8 @@
   function itemKey(id, size) { return `${id}__${size}`; }
 
   function renderCart() {
-    const total = cart.reduce((sum, item) => sum + item.preco * item.qty, 0);
-    const qty   = cart.reduce((sum, item) => sum + item.qty, 0);
+    const total = cart.reduce((sum, i) => sum + i.preco * i.qty, 0);
+    const qty   = cart.reduce((sum, i) => sum + i.qty, 0);
 
     cartBadge.textContent = qty;
 
@@ -176,15 +207,14 @@
     cartItemsEl.classList.toggle('hidden', isEmpty);
     cartFooter.classList.toggle('hidden', isEmpty);
 
-    if (isEmpty) return;
+    if (isEmpty) { saveCart(); return; }
 
     cartItemsEl.innerHTML = '';
     cart.forEach(item => {
       const li = document.createElement('li');
       li.className = 'cart-item';
-      li.dataset.key = itemKey(item.id, item.size);
       li.innerHTML = `
-        <div class="cart-item__img" id="cimg-${item.id}">
+        <div class="cart-item__img">
           <img src="images/${item.img}" alt="${item.nome}"
                onerror="this.parentElement.classList.add('no-img')" />
         </div>
@@ -193,15 +223,14 @@
           <span class="cart-item__size">Tam: ${item.size}</span>
           <p class="cart-item__preco">${brl(item.preco * item.qty)}</p>
           <div class="cart-item__qty">
-            <button class="qty-minus" data-key="${itemKey(item.id, item.size)}">−</button>
+            <button class="qty-minus" data-key="${itemKey(item.id, item.size)}">&#8722;</button>
             <span>${item.qty}</span>
-            <button class="qty-plus" data-key="${itemKey(item.id, item.size)}">+</button>
+            <button class="qty-plus"  data-key="${itemKey(item.id, item.size)}">+</button>
           </div>
         </div>
         <button class="cart-item__remove" data-key="${itemKey(item.id, item.size)}" aria-label="Remover">
           <i class="fa-solid fa-trash-can"></i>
-        </button>
-      `;
+        </button>`;
       cartItemsEl.appendChild(li);
     });
 
@@ -210,22 +239,20 @@
 
     if (total >= FRETE_GRATIS) {
       cartFreteMsg.className   = 'cart-frete gratis';
-      cartFreteMsg.textContent = '✓ Frete grátis aplicado!';
+      cartFreteMsg.textContent = '\u2713 Frete gr\u00e1tis aplicado!';
     } else {
-      const falta = FRETE_GRATIS - total;
       cartFreteMsg.className   = 'cart-frete faltam';
-      cartFreteMsg.textContent = `Faltam ${brl(falta)} para frete grátis`;
+      cartFreteMsg.textContent = `Faltam ${brl(FRETE_GRATIS - total)} para frete gr\u00e1tis`;
     }
 
-    cartItemsEl.querySelectorAll('.qty-minus').forEach(btn => {
-      btn.addEventListener('click', () => changeQty(btn.dataset.key, -1));
-    });
-    cartItemsEl.querySelectorAll('.qty-plus').forEach(btn => {
-      btn.addEventListener('click', () => changeQty(btn.dataset.key, +1));
-    });
-    cartItemsEl.querySelectorAll('.cart-item__remove').forEach(btn => {
-      btn.addEventListener('click', () => removeItem(btn.dataset.key));
-    });
+    cartItemsEl.querySelectorAll('.qty-minus').forEach(btn =>
+      btn.addEventListener('click', () => changeQty(btn.dataset.key, -1)));
+    cartItemsEl.querySelectorAll('.qty-plus').forEach(btn =>
+      btn.addEventListener('click', () => changeQty(btn.dataset.key, +1)));
+    cartItemsEl.querySelectorAll('.cart-item__remove').forEach(btn =>
+      btn.addEventListener('click', () => removeItem(btn.dataset.key)));
+
+    saveCart();
   }
 
   function changeQty(key, delta) {
@@ -242,9 +269,18 @@
     showToast('Item removido do carrinho.');
   }
 
-  // Vincula eventos dos botões "Adicionar" de todos os cards visíveis
+  // ── Vincular eventos dos cards ─────────────
   function bindCardEvents() {
     document.querySelectorAll('.produto-card').forEach(card => {
+      const imgEl = card.querySelector('.produto-card__img img');
+      if (imgEl && !imgEl._zoomBound) {
+        imgEl._zoomBound = true;
+        imgEl.style.cursor = 'zoom-in';
+        imgEl.addEventListener('click', () => {
+          openZoom(imgEl.src, card.dataset.nome, brl(parseFloat(card.dataset.preco)));
+        });
+      }
+
       const addBtn = card.querySelector('.btn-add-cart');
       if (!addBtn || addBtn._bound) return;
       addBtn._bound = true;
@@ -268,23 +304,17 @@
         const key   = itemKey(id, size);
 
         const existing = cart.find(i => itemKey(i.id, i.size) === key);
-        if (existing) {
-          existing.qty += 1;
-        } else {
-          cart.push({ id, nome, preco, img, size, qty: 1 });
-        }
+        if (existing) { existing.qty += 1; }
+        else { cart.push({ id, nome, preco, img, size, qty: 1 }); }
 
         renderCart();
         animateBadge();
-        showToast(`${nome} (${size}) adicionado ao carrinho! ♡`, 'success');
+        showToast(`${nome} (${size}) adicionado! \u2665`, 'success');
 
         const original = addBtn.innerHTML;
         addBtn.innerHTML = '<i class="fa-solid fa-check"></i> Adicionado!';
         addBtn.classList.add('added');
-        setTimeout(() => {
-          addBtn.innerHTML = original;
-          addBtn.classList.remove('added');
-        }, 1500);
+        setTimeout(() => { addBtn.innerHTML = original; addBtn.classList.remove('added'); }, 1500);
       });
     });
   }
@@ -297,32 +327,87 @@
     showToast('Carrinho limpo.');
   });
 
-  // Finalizar compra — envia pedido pelo WhatsApp
-  const WHATSAPP_NUMBER = '5583981801744'; // ← troque pelo seu número com DDI+DDD, sem espaços ou símbolos
+  // ============================================
+  //  MODAL RESUMO DO PEDIDO
+  // ============================================
+  const resumoModal   = document.getElementById('resumoModal');
+  const resumoClose   = document.getElementById('resumoClose');
+  const resumoOverlay = document.getElementById('resumoOverlay');
+  const resumoBody    = document.getElementById('resumoBody');
+  const resumoTotalEl = document.getElementById('resumoTotal');
+  const resumoFreteEl = document.getElementById('resumoFrete');
+  const resumoEnviar  = document.getElementById('resumoEnviar');
+
+  function openResumo() {
+    if (cart.length === 0) return;
+    const total = cart.reduce((sum, i) => sum + i.preco * i.qty, 0);
+
+    resumoBody.innerHTML = cart.map(i => `
+      <div class="resumo-item">
+        <div class="resumo-item__img">
+          <img src="images/${i.img}" alt="${i.nome}"
+               onerror="this.parentElement.classList.add('no-img')" />
+        </div>
+        <div class="resumo-item__info">
+          <strong>${i.nome}</strong>
+          <span>Tamanho: ${i.size}</span>
+          <span>Qtd: ${i.qty}</span>
+        </div>
+        <span class="resumo-item__preco">${brl(i.preco * i.qty)}</span>
+      </div>`).join('');
+
+    resumoTotalEl.textContent = brl(total);
+    resumoFreteEl.textContent = total >= FRETE_GRATIS
+      ? '\u2713 Frete gr\u00e1tis!'
+      : `Faltam ${brl(FRETE_GRATIS - total)} para frete gr\u00e1tis`;
+    resumoFreteEl.className = 'resumo-frete ' + (total >= FRETE_GRATIS ? 'gratis' : 'faltam');
+
+    resumoModal.classList.add('open');
+    resumoOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeResumo() {
+    resumoModal.classList.remove('open');
+    resumoOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  if (resumoClose)   resumoClose.addEventListener('click', closeResumo);
+  if (resumoOverlay) resumoOverlay.addEventListener('click', e => {
+    if (!resumoModal.contains(e.target)) closeResumo();
+  });
+  const resumoClose2 = document.getElementById('resumoClose2');
+  if (resumoClose2) resumoClose2.addEventListener('click', () => { closeResumo(); setTimeout(openCart, 300); });
 
   cartFinalizar.addEventListener('click', () => {
     if (cart.length === 0) return;
-    const total = cart.reduce((sum, item) => sum + item.preco * item.qty, 0);
-
-    const linhas = cart.map(i =>
-      `▪ ${i.nome}\n   Tamanho: ${i.size} | Qtd: ${i.qty} | ${brl(i.preco * i.qty)}`
-    ).join('\n');
-
-    const mensagem =
-      `🛍️ *NOVO PEDIDO — LA ROUPAS*\n\n` +
-      `${linhas}\n\n` +
-      `━━━━━━━━━━━━━━━━\n` +
-      `💰 *Total: ${brl(total)}*\n` +
-      (total >= FRETE_GRATIS ? `🚚 *Frete grátis aplicado!*\n` : '') +
-      `\nOlá! Gostaria de finalizar esse pedido. ♡`;
-
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, '_blank');
-
-    cart = [];
-    renderCart();
     closeCart();
+    setTimeout(openResumo, 300);
   });
+
+  if (resumoEnviar) {
+    resumoEnviar.addEventListener('click', () => {
+      const total = cart.reduce((sum, i) => sum + i.preco * i.qty, 0);
+      const linhas = cart.map(i =>
+        `\u25aa ${i.nome}\n   Tamanho: ${i.size} | Qtd: ${i.qty} | ${brl(i.preco * i.qty)}`
+      ).join('\n');
+
+      const mensagem =
+        `\ud83d\uded2 *NOVO PEDIDO \u2014 LA FASHION*\n\n` +
+        `${linhas}\n\n` +
+        `\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n` +
+        `\ud83d\udcb0 *Total: ${brl(total)}*\n` +
+        (total >= FRETE_GRATIS ? `\ud83d\ude9a *Frete gr\u00e1tis aplicado!*\n` : '') +
+        `\nOl\u00e1! Gostaria de finalizar esse pedido. \u2665`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`, '_blank');
+
+      cart = [];
+      renderCart();
+      closeResumo();
+    });
+  }
 
   // Inicia
   renderCart();

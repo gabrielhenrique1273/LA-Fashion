@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagina não encontrada - LA FASHION</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --lilas-escuro: #6B3FA0;
+      --lilas-medio:  #9B59B6;
+      --lilas-claro:  #D7BDE2;
+      --lilas-pastel: #F4ECF7;
+      --texto-escuro: #2C1654;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--lilas-pastel);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--lilas-escuro);
+      letter-spacing: 3px;
+      margin-bottom: 2.5rem;
+      text-decoration: none;
+    }
+    .logo span {
+      font-weight: 300;
+      letter-spacing: 6px;
+      font-size: .9rem;
+      display: block;
+    }
+    .number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(7rem, 25vw, 12rem);
+      font-weight: 700;
+      color: var(--lilas-claro);
+      line-height: 1;
+      position: relative;
+    }
+    .number::after {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--lilas-medio);
+      opacity: .25;
+    }
+    .icon {
+      font-size: 3rem;
+      color: var(--lilas-medio);
+      margin: 1rem 0;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: var(--texto-escuro);
+      margin-bottom: .6rem;
+    }
+    p {
+      color: #6e6e8a;
+      font-size: .95rem;
+      max-width: 380px;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--lilas-escuro);
+      color: #fff;
+      padding: .75rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: background .3s, transform .3s;
+    }
+    .btn:hover {
+      background: var(--lilas-medio);
+      transform: translateY(-2px);
+    }
+    .flowers {
+      position: fixed;
+      font-size: 1.5rem;
+      opacity: .12;
+      pointer-events: none;
+      user-select: none;
+    }
+    .flowers:nth-child(1) { top: 8%;  left: 6%; }
+    .flowers:nth-child(2) { top: 15%; right: 8%; font-size: 2rem; }
+    .flowers:nth-child(3) { bottom: 12%; left: 10%; font-size: 2.5rem; }
+    .flowers:nth-child(4) { bottom: 8%; right: 6%; }
+  </style>
+</head>
+<body>
+  <span class="flowers">&#10022;</span>
+  <span class="flowers">&#10022;</span>
+  <span class="flowers">&#10022;</span>
+  <span class="flowers">&#10022;</span>
+
+  <a href="index.html" class="logo">LA <span>FASHION</span></a>
+
+  <div class="number">404</div>
+
+  <i class="fa-solid fa-bag-shopping icon"></i>
+
+  <h1>Ops! Página não encontrada</h1>
+  <p>Parece que essa página sumiu do nosso closet. Mas não se preocupe — temos muito mais esperando por você!</p>
+
+  <a href="index.html" class="btn">
+    <i class="fa-solid fa-arrow-left"></i> Voltar para a loja
+  </a>
+</body>
+</html>
